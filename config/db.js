@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
 import colors from "colors";
-import express from "express";
-import dotenv from "dotenv";
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+
+
 
 const connectDB = async () => {
   try {
@@ -21,10 +19,6 @@ const connectDB = async () => {
 
 
 
-connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log("listening for requests");
-    })
-})
+
 
 export default connectDB;
