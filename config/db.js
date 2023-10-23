@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import colors from "colors";
 import express from "express";
 import dotenv from "dotenv";
+import path from "path";
+import {fileURLToPath} from 'url';
 const app = express();
 const PORT = process.env.PORT || 8080;
 
