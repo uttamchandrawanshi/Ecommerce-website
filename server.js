@@ -14,7 +14,7 @@ import {fileURLToPath} from 'url';
 dotenv.config();
 
 //database config
-connectDB();
+//connectDB();
 
 //es6 fix
 const __filename = fileURLToPath(import.meta.url);
@@ -45,8 +45,8 @@ const PORT = process.env.PORT || 8080;
 
 
 //run listen
-//connectDB().then(() => {
+connectDB().then(() => {
     app.listen(PORT, () => {
         console.log("listening for requests");
     })
-//})
+})
