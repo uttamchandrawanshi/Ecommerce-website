@@ -18,9 +18,9 @@ const connectDB = async () => {
   }
 };
 
-app.all('*', (req,res) => {
-    res.json({"every thing":"is awesome"})
-})
+app.use("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 connectDB().then(() => {
     app.listen(PORT, () => {
