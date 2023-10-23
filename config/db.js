@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import colors from "colors";
 import express from "express";
 import dotenv from "dotenv";
-import path from "path";
-import {fileURLToPath} from 'url';
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -20,9 +19,7 @@ const connectDB = async () => {
   }
 };
 
-app.use("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
 
 connectDB().then(() => {
     app.listen(PORT, () => {
