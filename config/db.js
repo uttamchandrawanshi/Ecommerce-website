@@ -1,18 +1,14 @@
 import mongoose from "mongoose";
 import colors from "colors";
+import express from "express";
 import dotenv from "dotenv";
-
+const app = express();
 const PORT = process.env.PORT || 8080;
 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URL);
-    app.listen(PORT, () => {
-   console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-      .white
-  );
-});
+  
 
     console.log(
       `connect to mongodb database ${conn.connection.host}`.bgMagenta.white
@@ -21,5 +17,15 @@ const connectDB = async () => {
     console.log(`error in mongodb ${error}`.bgRed.white);
   }
 };
+
+app.all('*', (req,res) => {
+    res.json({"every thing":"is awesome"})
+})
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
 
 export default connectDB;
