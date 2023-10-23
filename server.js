@@ -14,7 +14,7 @@ import {fileURLToPath} from 'url';
 dotenv.config();
 
 //database config
-/////connectDB();
+connectDB();
 
 //es6 fix
 const __filename = fileURLToPath(import.meta.url);
